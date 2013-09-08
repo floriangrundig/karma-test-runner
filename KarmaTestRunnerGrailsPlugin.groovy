@@ -12,10 +12,17 @@ class KarmaTestRunnerGrailsPlugin {
     def author = "Florian Grundig "
     def authorEmail = "florian.grundig@gmx.de"
     def description = '''\
-Plugin to run javascript unit or e2e tests with karma. The plugin provides a test type "javascript" which can be run in any test phase.
+Plugin to run javascript unit or e2e tests with karma. The plugin provides a test type "javascript"
+which can be run in any test phase.
+
 For example "test-app unit:javascript" will execute the javascript unit tests - "test-app functional:javascript"
 will execute the javascript e2e tests. "test-app" will execute all tests (including the javascript tests).
-The new test type will be triggered if any test file with the name suffix "SuiteJS" will be found in test/**/*"
+
+The new test type will be triggered if any test file with the name suffix "KarmaSuite" will be found in test/**/*"
+e.g. "MyJavaScriptKarmaSuite.groovy".
+
+This plugin needs karma with the 'karma-remote-reporter' plugin for more information see package.json at
+https://github.com/FlorianGrundig/grails-angular-phonecat
 '''
 
     // URL to the plugin's documentation
@@ -27,7 +34,7 @@ The new test type will be triggered if any test file with the name suffix "Suite
     def license = "APACHE"
 
     // Details of company behind the plugin (if there is one)
-    def organization = [ name: "Immobilienscout24", url: "http://www.immobilienscout24.de" ]
+    def organization = [ name: "ImmobilienScout24", url: "http://www.immobilienscout24.de" ]
 
     // Any additional developers beyond the author specified above.
 //    def developers = [ [ name: "Joe Bloggs", email: "joe@bloggs.net" ]]
