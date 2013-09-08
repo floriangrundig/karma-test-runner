@@ -21,7 +21,7 @@ will execute the javascript e2e tests. "test-app" will execute all tests (includ
 The new test type will be triggered if any test file with the name suffix "KarmaSuite" will be found in test/**/*"
 e.g. "MyJavaScriptKarmaSuite.groovy".
 
-This plugin needs karma with the 'karma-remote-reporter' plugin for more information see package.json at
+This plugin needs karma with the "karma-remote-reporter" plugin for more information see package.json at
 https://github.com/FlorianGrundig/grails-angular-phonecat
 '''
 
