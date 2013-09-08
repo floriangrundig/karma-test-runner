@@ -14,9 +14,15 @@ import org.junit.runners.Suite
 
 import java.lang.reflect.Modifier
 
+/**
+ * Karma test type enables the JUnit @RunWith(KarmaTestSuiteRunner.class) annotation
+ * when test file ends with 'KarmaSuite'.
+ *
+ * Integrates the JUnit test runner and grails.
+ */
 class KarmaTestType extends GrailsTestTypeSupport {
 
-  static final SUFFIXES = ['SuiteJS'].asImmutable()
+  static final SUFFIXES = ['KarmaSuite'].asImmutable()
 
   private Suite suite
 
