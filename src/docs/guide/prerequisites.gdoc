@@ -1,0 +1,80 @@
+In order to make the plugin run your javascript tests it will start [karma|http://karma-runner.github.io/] with your
+config provided by the test annotation @KarmaTestSuiteRunner.KarmaConfigPath@.
+
+{warning}
+The plugin does not contain [nodejs|http://nodejs.org/] or [karma|http://karma-runner.github.io/].
+You have to install these frameworks by yourself.
+{warning}
+
+
+{warning}
+The karma-test-runner plugin currently supports only [karma|http://karma-runner.github.io/] versions *0.10.x*.
+{warning}
+
+
+h1. Dependencies
+
+h2. karma-test-runner
+Add the plugin as test dependency in your @BuildConfig.groovy@
+{code}
+ plugins {
+       ...
+
+      test ':karma-test-runner:0.1-SNAPSHOT'
+    }
+{code}
+
+
+h2. Nodejs
+Make sure you have [nodejs|http://nodejs.org/] installed (see [karma|http://karma-runner.github.io/] documentation for
+compatible nodejs versions - currently versions 0.8.x and 0.10.x).
+
+h2. Karma
+{note}
+There is a fast way of setting up your grails application to test the plugin. Doing so
+all required dependencies will be installed locally in a folder "node_modules" in your app root dir.
+{warning}
+Do not commit the "node_modules" directory in your VCS.
+{warning}
+*This is not suitable for CI environments like build-agents, which make clean checkouts.*
+
+The plugin provides a script @create-karma-package-json@ which you can run in grails console of your grails app.
+
+This script will create a file @package.json@ in your app root dir. With this file you can use
+ {code}
+    npm install --save-dev
+ {code}
+ to install @karma@ and @karma-remote-reporter@ locally.
+{note}
+
+If you want to do it not the fast way then read further otherwise you can skip this section.
+
+The nodejs application [karma|http://karma-runner.github.io/] in version 0.10.x needs to be installed.
+A global installation is recommended when using the plugin in CI environments (e.g. the grails app will be tested by a jenkins-agent):
+{code}
+npm install -g karma@0.10
+{code}
+For testing the plugin a local installation is good enough:
+{code}
+npm install karma@0.10 --save-dev
+{code}
+
+h3. karma-remote-reporter
+The [karma-remote-reporter|https://github.com/ImmobilienScout24/karma-remote-reporter] is a karma plugin which reports the test results
+to a remote server. The remote server is started by the [KarmaTestSuiteRunner|https://github.com/ImmobilienScout24/junit-karma-testrunner]
+which is used by this plugin.
+
+To install the karma-remote-reporter you can do it globally:
+{code}
+npm install -g karma-remote-reporter
+{code}
+or locally:
+{code}
+npm install karma-remote-reporter
+{code}
+
+
+
+
+
+
