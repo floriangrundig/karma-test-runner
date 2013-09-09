@@ -71,7 +71,7 @@ The plugin provides a script "create-karma-package-json" which you can run in gr
 This script will create a file "package.json" in your app root dir. With this file you can use
 ```
     npm install --save-dev
-```
+``
  to install karma and karma-remote-reporter locally.
 
 
@@ -111,8 +111,8 @@ test results in a JUnit way and provides a triggering test type. This plugin *do
 which is done by karma (http://karma-runner.github.io/).
 
 So there two ways you have to setup your application to execute javascript tests:
-# setup a karma config to define which tests should be executed and how
-# setup the karma test runner to run karma with a given karma config
+* setup a karma config to define which tests should be executed and how
+* setup the karma test runner to run karma with a given karma config
 
 ### Setup a karma config
 To setup a karma config means to create a config file which karma uses when executing the tests.
