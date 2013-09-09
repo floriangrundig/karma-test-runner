@@ -9,9 +9,9 @@ This is a grails plugin to run javascript tests with [karma] in grails test-app 
 ## Introduction
 
 The plugin provides a new test type "javascript" which can be executed in the unit or functional test phase:
-* to run all javascript unit test you can execute @test-app unit:javascript@
-* to run all javascript e2e test you can execute @test-app functional:javascript@
-* to run all unit tests inclusive javascript tests you can execute @test-app unit:@  as already known (same thing for all functional tests or all test with @test-app@)
+* to run all javascript unit test you can execute "test-app unit:javascript"
+* to run all javascript e2e test you can execute "test-app functional:javascript"
+* to run all unit tests inclusive javascript tests you can execute "test-app unit:"  as already known (same thing for all functional tests or all test with "test-app")
 
 To javascript tests can be in any format [karma|http://karma-runner.github.io/] provides.
 To trigger the plugin to execute your tests you have create a normal test class (either in test/unit or test/functional) which has the name suffix "KarmaSuite":
@@ -30,7 +30,7 @@ A complete grails application which uses this plugin as a reference can be found
 ##Prerequisites
 
 In order to make the plugin run your javascript tests it will start [karma] with your
-config provided by the test annotation "KarmaTestSuiteRunner.KarmaConfigPath".
+config provided by the test annotation "@KarmaTestSuiteRunner.KarmaConfigPath" (see above).
 [karma]:http://karma-runner.github.io/
 
 The plugin does not contain [nodejs] or [karma].
@@ -71,7 +71,7 @@ The plugin provides a script "create-karma-package-json" which you can run in gr
 This script will create a file "package.json" in your app root dir. With this file you can use
 ```
     npm install --save-dev
-``
+```
  to install karma and karma-remote-reporter locally.
 
 
