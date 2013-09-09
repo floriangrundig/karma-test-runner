@@ -1,6 +1,6 @@
 includeTargets << grailsScript("_GrailsInit")
 
-target(main: "Creates a package.json in the root dir for easy installing the required dependencies with 'npm install' (quickstart - local installation)") {
+target(createKarmaPackageJson: "Creates a package.json in the root dir for easy installing the required dependencies with 'npm install' (quickstart - local installation)") {
   ant.copy(
       file: "${karmaTestRunnerPluginDir}/src/samples/package.json",
       todir: "${basedir}/",
@@ -16,4 +16,4 @@ target(main: "Creates a package.json in the root dir for easy installing the req
 '''
 }
 
-setDefaultTarget(main)
+setDefaultTarget(createKarmaPackageJson)
