@@ -5,7 +5,9 @@ class KarmaTestRunnerGrailsPlugin {
     def grailsVersion = "2.2 > *"
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
-        "grails-app/views/error.gsp"
+        "grails-app/views/error.gsp",
+        "src/docs/**/*",
+        "src/samples/**/*",
     ]
 
     def title = "Karma Test Runner Plugin" // Headline display name of the plugin
@@ -14,15 +16,6 @@ class KarmaTestRunnerGrailsPlugin {
     def description = '''\
 Plugin to run javascript unit or e2e tests with karma. The plugin provides a test type "javascript"
 which can be run in any test phase.
-
-For example "test-app unit:javascript" will execute the javascript unit tests - "test-app functional:javascript"
-will execute the javascript e2e tests. "test-app" will execute all tests (including the javascript tests).
-
-The new test type will be triggered if any test file with the name suffix "KarmaSuite" will be found in test/**/*"
-e.g. "MyJavaScriptKarmaSuite.groovy".
-
-This plugin needs karma with the "karma-remote-reporter" plugin for more information see package.json at
-https://github.com/FlorianGrundig/grails-angular-phonecat
 '''
 
     // URL to the plugin's documentation

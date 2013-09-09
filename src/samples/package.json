@@ -1,0 +1,22 @@
+{
+  "name": "karma-test-runner",
+  "version": "0.0.1",
+  "description": "use 'npm install' for quick start - installing required karma dependencies locally",
+  "scripts": {
+    "test": "echo 'Error: no test specified' && exit 1"
+  },
+  "author": {
+    "name": "Grundig Florian",
+    "email": "florian.grundig@gmx.de"
+  },
+  "dependencies": {
+    "karma": "0.10.x",
+    "karma-ng-scenario": ">=0.1",
+    "karma-remote-reporter": "0.1.x"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "karma-junit-reporter": "~0.1.0"
+  },
+  "contributors": []
+}

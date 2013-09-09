@@ -1,5 +1,4 @@
 .idea/
 *.iml
-target/*
-!target/docs
+target/
 plugin.xml
