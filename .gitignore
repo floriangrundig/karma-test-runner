@@ -2,3 +2,6 @@
 *.iml
 target/
 plugin.xml
+*.zip
+*.log
+web-app
