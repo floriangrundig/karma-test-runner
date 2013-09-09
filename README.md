@@ -71,7 +71,7 @@ The plugin provides a script "create-karma-package-json" which you can run in gr
 This script will create a file "package.json" in your app root dir. With this file you can use
 ```
     npm install --save-dev
-``
+```
  to install karma and karma-remote-reporter locally.
 
 
