@@ -8,7 +8,7 @@ The plugin provides a new test type "javascript" which can be executed in the un
 * to run all unit tests inclusive javascript tests you can execute @test-app unit:@  as already known (same thing for all functional tests or all test with @test-app@)
 {note}
 
-To javascript tests can be in any format [karma|http://karma-runner.github.io/] provides.
+The javascript tests can be in any format [karma|http://karma-runner.github.io/] provides.
 To trigger the plugin to execute your tests you have create a normal test class (either in test/unit or test/functional) which has the name suffix @KarmaSuite@:
 {code}
 @RunWith(KarmaTestSuiteRunner.class)
