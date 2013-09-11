@@ -50,7 +50,7 @@ Add the plugin as test dependency in your "BuildConfig.groovy"
  plugins {
        ...
 
-      test ':karma-test-runner:0.1-SNAPSHOT'
+      test ':karma-test-runner:0.1.1'
     }
 ```
 

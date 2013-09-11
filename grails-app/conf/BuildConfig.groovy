@@ -9,11 +9,10 @@ grails.project.dependency.resolution = {
 		grailsCentral()
 		mavenLocal()
 		mavenCentral()
-		mavenRepo "http://oss.sonatype.org/content/repositories/snapshots"
 	}
 
 	dependencies {
-		compile 'de.is24.util:junit-karma-testrunner:1.0-SNAPSHOT'
+		compile 'de.is24.util:junit-karma-testrunner:1.0.0'
 	}
 
 	plugins {
