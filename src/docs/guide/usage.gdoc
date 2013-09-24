@@ -186,3 +186,34 @@ The plugin provides a new test type "javascript" which can be executed in the un
 A complete grails application which uses this plugin as a reference can be found [here|https://github.com/FlorianGrundig/grails-angular-phonecat].
 
 
+h2. Additional Setup for Windows and Mac environments
+
+When you want to run the tests in a windows or mac environment, where are some issues with finding the karma executable.
+To get around this you can configure the KarmaTestSuiteRunner not to start karma directly but to start a script which will start karma by itself.
+A script allows you to set the path environment variable for the karma executable or for the browser executables too.
+
+To use a script look at this example for a windows batch file:
+
+{code}
+@RunWith(KarmaTestSuiteRunner.class)
+@KarmaTestSuiteRunner.KarmaConfigPath("./src/test/resources/config/karma-e2e.conf.js")
+@KarmaTestSuiteRunner.KarmaProcessBuilderArgs("./scripts/e2e-test.bat")
+public class JavaScriptE2eTestKarmaSuite {
+    ...
+}
+{code}
+
+In the script file you can modify the path for the karma executeable etc:
+{code}
+set PATH=%PATH%;"C:\Users\florian\appdata\npm"    # depends on your environment - search for the karma executable
+
+set CHROME_BIN="path\to\your\chrome.exe"
+set IE_BIN="path\to\your\iexplore.exe"
+
+
+set BASE_DIR=%~dp0
+karma start "%BASE_DIR%\..\test\javascript\config\karma.conf.js" %*        # path to your karma config
+{code}
+
+
+
