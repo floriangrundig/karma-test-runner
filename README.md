@@ -29,6 +29,8 @@ A complete grails application which uses this plugin as a reference can be found
 
 ##Prerequisites
 
+The plugin runs only on java 7 or higher versions.
+
 In order to make the plugin run your javascript tests it will start [karma] with your
 config provided by the test annotation "@KarmaTestSuiteRunner.KarmaConfigPath" (see above).
 [karma]:http://karma-runner.github.io/
