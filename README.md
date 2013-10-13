@@ -291,8 +291,8 @@ To use a script look at this test class  example for a windows batch file:
 ```
 @RunWith(KarmaTestSuiteRunner.class)
 @KarmaTestSuiteRunner.KarmaConfigPath("./src/test/resources/config/karma-e2e.conf.js")
-@KarmaTestSuiteRunner.KarmaRemoteServerPort(9877)
-@KarmaTestSuiteRunner.KarmaProcessBuilderArgs("./scripts/e2e-test.bat")
+@KarmaTestSuiteRunner.KarmaRemoteServerPort(9877)                        // set your port the default might not work
+@KarmaTestSuiteRunner.KarmaProcessBuilderArgs("./scripts/e2e-test.bat")  // set the path to your script
 public class JavaScriptE2eTestKarmaSuite {
     ...
 }
