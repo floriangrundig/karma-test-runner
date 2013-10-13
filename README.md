@@ -282,15 +282,16 @@ A complete grails application which uses this plugin as a reference can be found
 
 ####  Additional Setup for Windows and Mac environments
 
-When you want to run the tests in a windows or mac environment, where are some issues with finding the karma executable.
+When you want to run the tests in a windows or mac environment, where are some issues with finding the karma executable and the port the plugin receives the test results.
 To get around this you can configure the KarmaTestSuiteRunner not to start karma directly but to start a script which will start karma by itself.
 A script allows you to set the path environment variable for the karma executable or for the browser executables too.
 
-To use a script look at this example for a windows batch file:
+To use a script look at this test class  example for a windows batch file:
 
 ```
 @RunWith(KarmaTestSuiteRunner.class)
 @KarmaTestSuiteRunner.KarmaConfigPath("./src/test/resources/config/karma-e2e.conf.js")
+@KarmaTestSuiteRunner.KarmaRemoteServerPort(9877)
 @KarmaTestSuiteRunner.KarmaProcessBuilderArgs("./scripts/e2e-test.bat")
 public class JavaScriptE2eTestKarmaSuite {
     ...
@@ -307,10 +308,15 @@ set IE_BIN="path\to\your\iexplore.exe"
 
 set BASE_DIR=%~dp0
 karma start "%BASE_DIR%\..\test\javascript\config\karma.conf.js" %*        # path to your karma config
-``
+```
 
-
-
+In the karma config file set the port you configured in your test class:
+```
+ remoteReporter: {
+            host: 'localhost',
+            port: '9877'
+        },
+```
 
 
 
