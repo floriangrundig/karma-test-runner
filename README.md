@@ -31,6 +31,8 @@ A complete grails application which uses this plugin as a reference can be found
 
 The plugin runs only on java 7 or higher versions.
 
+The plugin currently fails when running on grails 2.3.x with forked test execution (this is an open issue and will hopefully be fixed soon).
+
 In order to make the plugin run your javascript tests it will start [karma] with your
 config provided by the test annotation "@KarmaTestSuiteRunner.KarmaConfigPath" (see above).
 [karma]:http://karma-runner.github.io/
