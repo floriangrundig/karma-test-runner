@@ -1,5 +1,3 @@
-includeTargets << grailsScript("_GrailsCompile")
-
 def tryToLoadCounter = 0
 
 loadKarmaTestTypeClass = {->
@@ -11,7 +9,8 @@ loadKarmaTestTypeClass = {->
   try {
     doLoad()
   } catch (ClassNotFoundException ignore) {
-    compilePlugins()
+    includeTargets << grailsScript("_GrailsCompile")
+    compile()
     loadKarmaTestTypeClass()
   }
 }
@@ -27,6 +26,9 @@ loadKarmaTestType = {
   }
 }
 
+eventTestCompileEnd = {
+   loadKarmaTestTypeClass()
+}
 eventAllTestsStart = {
   loadKarmaTestType()
 }
