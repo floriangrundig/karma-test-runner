@@ -34,8 +34,8 @@ A complete grails application which uses this plugin as a reference can be found
 ##History
 v0.2.0
 * uses junit-karma-testrunner v.1.1
-** more configuration options for running the tests in a developement and CI-Server environment
-** causes a failing test suite when javascript syntax errors where reported
+* more configuration options for running the tests in a developement and CI-Server environment
+* causes a failing test suite when javascript syntax errors where reported
 
 
 
@@ -160,7 +160,7 @@ module.exports = function (config) {
         singleRun: true,
         remoteReporter: {
             host: 'localhost',
-            port: '9876'
+            port: '9889'
         },
         plugins: [
             'karma-jasmine',
@@ -178,7 +178,7 @@ module.exports = function (config) {
 * frameworks: frameworks you have used in your javascript tests
 * autoWatch: must be false
 * singleRun: must be true
-* remoteReporter: must be matching to your setup of the karma test runner (use localhost and port 9876 if you have not configured otherwise)
+* remoteReporter: must be matching to your setup of the karma test runner (use localhost and port 9889 if you have not configured otherwise)
 * plugins: list with plugins - 'karma-remote-reporter' must be included so that the 'remote' reporter is available
 
 #### E2E tests (functional tests)
@@ -204,7 +204,7 @@ module.exports = function (config) {
         urlRoot: '/__karma/',
         remoteReporter: {
             host: 'localhost',
-            port: '9876'
+            port: '9889'
         },
         plugins: [
             'karma-jasmine',
@@ -233,6 +233,7 @@ If you want to use karma for instant feedback (autoWatch: true, singleRun: false
 In a CI environment you should use only browsers supported by your CI-Server. There're ways to copy a build-agent specific karma.conf when running the build...
 
 Look at the karma (http://karma-runner.github.io/) homepage - there're several more configuration options which might be interesting.
+One more: if you have two config files one for developement and one for the CI-Server -> extract the "files" and "exclude" section into a separate js-file to avoid duplicates...
 
 ### Setup karma test runner
 
@@ -278,7 +279,7 @@ public class JavaScriptE2eTestKarmaSuite {
 The most important thing is to run JUnit with the KarmaTestSuiteRunner.
 With the KarmaConfigPath you should choose the appropriate karma config file location.
 
-With KarmaStartupScripts you can also point to a script/batch file which setup the path to find karma etc.
+With KarmaStartupScripts you can also point to a script/batch file which setup the path to find karma etc. Have a look at the junit-karma-testrunner documentation...
 
 Use the @BeforeClass and @AfterClass annotated methods to setup/cleanup your test scenario which is only useful for e2e tests.
 If you need different test scenarios feel free to make another test class with it's own karma conf.
@@ -294,7 +295,7 @@ A complete grails application which uses this plugin as a reference can be found
 
 ####  Additional Setup for Windows and Mac environments
 
-When you want to run the tests in a windows or mac environment, where are some issues with finding the karma executable and the port the plugin receives the test results.
+When you want to run the tests in a windows or mac environment, where might be some issues with finding the karma executable and the port the plugin receives the test results.
 To get around this you can configure the KarmaTestSuiteRunner not to start karma directly but to start a script which will start karma by itself.
 A script allows you to set the path environment variable for the karma executable or for the browser executables too.
 
@@ -303,8 +304,8 @@ To use a script look at this test class  example for a windows batch file:
 ```
 @RunWith(KarmaTestSuiteRunner.class)
 @KarmaTestSuiteRunner.KarmaConfigPath("./src/test/resources/config/karma-e2e.conf.js")
-@KarmaTestSuiteRunner.KarmaRemoteServerPort(9877)                        // set your port the default might not work
-@KarmaTestSuiteRunner.KarmaProcessBuilderArgs("./scripts/e2e-test.bat")  // set the path to your script
+@KarmaTestSuiteRunner.KarmaRemoteServerPort(9999)                        // set your port the default might not work
+@KarmaTestSuiteRunner.KarmaStartupScripts("./scripts/e2e-test.bat")  // set the path to your script
 public class JavaScriptE2eTestKarmaSuite {
     ...
 }
@@ -326,7 +327,7 @@ In the karma config file set the port you configured in your test class:
 ```
  remoteReporter: {
             host: 'localhost',
-            port: '9877'
+            port: '9999'
         },
 ```
 
