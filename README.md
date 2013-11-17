@@ -36,6 +36,7 @@ v0.2.0
 * uses junit-karma-testrunner v.1.1
 * more configuration options for running the tests in a developement and CI-Server environment
 * causes a failing test suite when javascript syntax errors where reported
+* Majorchange: The annotation KarmaProcessBuilderArgs is not supported anymore, use KarmaProcessName or KarmaStartupScripts instead
 
 
 
@@ -284,6 +285,7 @@ With KarmaStartupScripts you can also point to a script/batch file which setup t
 Use the @BeforeClass and @AfterClass annotated methods to setup/cleanup your test scenario which is only useful for e2e tests.
 If you need different test scenarios feel free to make another test class with it's own karma conf.
 
+Mostly all of the KarmaTestSuiteRunner annotations can be overwritten by system properties to run in CI-Server environments (see junit-karma-testrunner docu).
 
 The plugin provides a new test type "javascript" which can be executed in the unit or functional test phase:
 * to run all javascript unit test you can execute "test-app unit:javascript"
