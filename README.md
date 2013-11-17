@@ -27,11 +27,23 @@ Note: When this plugin is published to grailsCentral the documentation will be t
 
 A complete grails application which uses this plugin as a reference can be found at https://github.com/FlorianGrundig/grails-angular-phonecat
 
+##IMPORTANT
+* please reinstall karma-remote-reporter to a version >= v0.1.3 which fixes critical errors when reporting the test results
+* The plugin currently fails when running on grails 2.3.x with forked test execution.
+
+##History
+v0.2.0
+* uses junit-karma-testrunner v.1.1
+** more configuration options for running the tests in a developement and CI-Server environment
+** causes a failing test suite when javascript syntax errors where reported
+
+
+
 ##Prerequisites
 
 The plugin runs only on java 7 or higher versions.
 
-The plugin currently fails when running on grails 2.3.x with forked test execution (this is an open issue and will hopefully be fixed soon).
+The plugin currently fails when running on grails 2.3.x with forked test execution.
 
 In order to make the plugin run your javascript tests it will start [karma] with your
 config provided by the test annotation "@KarmaTestSuiteRunner.KarmaConfigPath" (see above).
@@ -54,7 +66,7 @@ Add the plugin as test dependency in your "BuildConfig.groovy"
  plugins {
        ...
 
-      test ':karma-test-runner:0.1.1'
+      test ':karma-test-runner:0.2.0'
     }
 ```
 
@@ -249,7 +261,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(KarmaTestSuiteRunner.class)
 @KarmaTestSuiteRunner.KarmaConfigPath("./src/test/resources/config/karma-e2e.conf.js")
-@KarmaTestSuiteRunner.KarmaProcessBuilderArgs({"karma", "start"})
 public class JavaScriptE2eTestKarmaSuite {
 
     @BeforeClass
@@ -266,9 +277,8 @@ public class JavaScriptE2eTestKarmaSuite {
 
 The most important thing is to run JUnit with the KarmaTestSuiteRunner.
 With the KarmaConfigPath you should choose the appropriate karma config file location.
-Use the KarmaProcessBuilderArgs to define how to start karma.
 
-With KarmaProcessBuilderArgs you can also point to a script/batch file which setup the path to find karma etc.
+With KarmaStartupScripts you can also point to a script/batch file which setup the path to find karma etc.
 
 Use the @BeforeClass and @AfterClass annotated methods to setup/cleanup your test scenario which is only useful for e2e tests.
 If you need different test scenarios feel free to make another test class with it's own karma conf.
