@@ -8,24 +8,24 @@ This is a grails plugin to run javascript tests with [karma] in grails test-app 
 
 ## Introduction
 
-The plugin provides a new test type "javascript" which can be executed in the unit or functional test phase:
-* to run all javascript unit test you can execute "test-app unit:javascript"
-* to run all javascript e2e test you can execute "test-app functional:javascript"
-* to run all unit tests inclusive javascript tests you can execute "test-app unit:"  as already known (same thing for all functional tests or all test with "test-app")
+The plugin provides a new test type `javascript` which can be executed in the unit or functional test phase:
+* to run all javascript unit test you can execute `test-app unit:javascript`
+* to run all javascript e2e test you can execute `test-app functional:javascript`
+* to run all unit tests inclusive javascript tests you can execute `test-app unit:`  as already known (same thing for all functional tests or all test with `test-app`)
 
 To javascript tests can be in any format [karma|http://karma-runner.github.io/] provides.
-To trigger the plugin to execute your tests you have create a normal test class (either in test/unit or test/functional) which has the name suffix "KarmaSuite":
+To trigger the plugin to execute your tests you have create a normal test class (either in `test/unit` or `test/functional`) which has the name suffix `KarmaSuite`:
 ```java
-    @RunWith(KarmaTestSuiteRunner.class)
-    @KarmaTestSuiteRunner.KarmaConfigPath("./path/to/karma.conf.js")
-    public class JavaScriptUnitTestKarmaSuite {
-    }
+@RunWith(KarmaTestSuiteRunner.class)
+@KarmaTestSuiteRunner.KarmaConfigPath("./path/to/karma.conf.js")
+public class JavaScriptUnitTestKarmaSuite {
+}
 ```
 
 For further information checkout and run "grails doc" to see the documentation.
 Note: When this plugin is published to grailsCentral the documentation will be there...
 
-A complete grails application which uses this plugin as a reference can be found at https://github.com/FlorianGrundig/grails-angular-phonecat
+A complete grails application which uses this plugin as a reference can be found at [Grails Angular Phonecat project](https://github.com/FlorianGrundig/grails-angular-phonecat)
 
 ##IMPORTANT
 * please reinstall karma-remote-reporter to a version >= v0.1.3 which fixes critical errors when reporting the test results
@@ -47,7 +47,7 @@ The plugin runs only on java 7 or higher versions.
 The plugin currently fails when running on grails 2.3.x with forked test execution.
 
 In order to make the plugin run your javascript tests it will start [karma] with your
-config provided by the test annotation "@KarmaTestSuiteRunner.KarmaConfigPath" (see above).
+config provided by the test annotation `@KarmaTestSuiteRunner.KarmaConfigPath` (see above).
 [karma]:http://karma-runner.github.io/
 
 The plugin does not contain [nodejs] or [karma].
@@ -56,19 +56,18 @@ You have to install these frameworks by yourself.
 [nodejs]:http://nodejs.org/
 
 
-The karma-test-runner plugin currently supports only karma versions *0.10.x*.
+The karma-test-runner plugin currently supports only karma versions 0.10.x.
 
 
 ### Dependencies
 
 #### karma-test-runner
-Add the plugin as test dependency in your "BuildConfig.groovy"
-```
- plugins {
-       ...
-
-      test ':karma-test-runner:0.2.0'
-    }
+Add the plugin as test dependency in your `BuildConfig.groovy`
+```groovy
+plugins {
+   ...
+   test ':karma-test-runner:0.2.0'
+}
 ```
 
 
@@ -86,8 +85,8 @@ Do not commit the "node_modules" directory in your VCS.
 The plugin provides a script "create-karma-package-json" which you can run in grails console of your grails app.
 
 This script will create a file "package.json" in your app root dir. With this file you can use
-```
-    npm install --save-dev
+```sh
+npm install --save-dev
 ```
  to install karma and karma-remote-reporter locally.
 
@@ -97,25 +96,25 @@ If you want to do it not the fast way then read further otherwise you can skip t
 
 The nodejs application karma in version 0.10.x needs to be installed.
 A global installation is recommended when using the plugin in CI environments (e.g. the grails app will be tested by a jenkins-agent):
-```
+```sh
 npm install -g karma@0.10
 ```
 For testing the plugin a local installation is good enough:
-```
+```sh
 npm install karma@0.10 --save-dev
 ```
 
 ##### karma-remote-reporter
-The karma-remote-reporter (https://github.com/ImmobilienScout24/karma-remote-reporter) is a karma plugin which reports the test results
-to a remote server. The remote server is started by the KarmaTestSuiteRunner (https://github.com/ImmobilienScout24/junit-karma-testrunner)
+The [karma-remote-reporter](https://github.com/ImmobilienScout24/karma-remote-reporter) is a karma plugin which reports the test results
+to a remote server. The remote server is started by the [KarmaTestSuiteRunner](https://github.com/ImmobilienScout24/junit-karma-testrunner)
 which is used by this plugin.
 
 To install the karma-remote-reporter you can do it globally:
-```
+```sh
 npm install -g karma-remote-reporter
 ```
 or locally:
-```
+```sh
 npm install karma-remote-reporter
 ```
 
@@ -143,8 +142,8 @@ In this reference app you'll find two karma config files
 ** @grails-angular-phonecat/test/javascript/config/karma-e2e.conf.js@
 
 #### Unit Tests
-A minimum karma config file for running unit tests (karma.conf.js):
-```
+A minimum karma config file for running unit tests (`karma.conf.js`):
+```js
 module.exports = function (config) {
     config.set({
 
@@ -180,11 +179,11 @@ module.exports = function (config) {
 * autoWatch: must be false
 * singleRun: must be true
 * remoteReporter: must be matching to your setup of the karma test runner (use localhost and port 9889 if you have not configured otherwise)
-* plugins: list with plugins - 'karma-remote-reporter' must be included so that the 'remote' reporter is available
+* plugins: list with plugins - `karma-remote-reporter` must be included so that the 'remote' reporter is available
 
 #### E2E tests (functional tests)
-A minimum karma config file for e2e unit tests (karma-e2e.conf.js):
-```
+A minimum karma config file for e2e unit tests (`karma-e2e.conf.js`):
+```js
 module.exports = function (config) {
     config.set({
 
@@ -224,23 +223,23 @@ module.exports = function (config) {
 * frameworks: frameworks you have used in your javascript tests
 * autoWatch: must be false
 * singleRun: must be true
-* proxies: if you want use relative paths in your tests like browser.navigateTo("/") you have to proxy them - if you use the grails resource plugin you have to proxy the static path!!!
+* proxies: if you want use relative paths in your tests like `browser.navigateTo("/")` you have to proxy them - if you use the grails resource plugin you have to proxy the static path!!!
 * urlRoot: used by karma - to avoid path name clashes with your app choose a path which is not handled by your app
 * remoteReporter: must be matching to your setup of the karma test runner (use localhost and port 9876 if you have not configured otherwise)
-* plugins: list with plugins - 'karma-remote-reporter' must be included so that the 'remote' reporter is available
+* plugins: list with plugins - `karma-remote-reporter` must be included so that the `remote` reporter is available
 
 If you want to use karma for instant feedback (autoWatch: true, singleRun: false) make another karma config file (e.g. karma.manual.conf) and use karma without the plugin - you can (should) do both :)
 
 In a CI environment you should use only browsers supported by your CI-Server. There're ways to copy a build-agent specific karma.conf when running the build...
 
-Look at the karma (http://karma-runner.github.io/) homepage - there're several more configuration options which might be interesting.
+Look at the [karma homepage](http://karma-runner.github.io/) - there're several more configuration options which might be interesting.
 One more: if you have two config files one for developement and one for the CI-Server -> extract the "files" and "exclude" section into a separate js-file to avoid duplicates...
 
 ### Setup karma test runner
 
-To setup the karma test runner you should keep the following in mind. If you create a test class in the /test/unit folder you can only execute
+To setup the karma test runner you should keep the following in mind. If you create a test class in the `/test/unit` folder you can only execute
 javascript tests which do not require a running webapp (unit tests). The other way around: if your javascript tests require a running
-webapp put your test class into the /test/functional folder.
+webapp put your test class into the `/test/functional` folder.
 
 Before you start the javascript tests the first time make sure that you have setup your karma config correctly.
 To test your karma config start karma manually from the webapp root dir with:
@@ -249,10 +248,10 @@ karma start /path/to/your/karma.conf
 ```
 If you're running e2e tests you have to start the webapp manually before you execute the e2e tests.
 
-All test files which should be run by the KarmaTestSuiteRunner should end with "*KarmaSuite.groovy".
+All test files which should be run by the KarmaTestSuiteRunner should end with `*KarmaSuite.groovy`.
 
 Here's is sample test file for running karma e2e tests:
-```
+```java
 package de.is24.demo.karma;
 
 import de.is24.util.karmatestrunner.junit.KarmaTestSuiteRunner;
@@ -282,18 +281,18 @@ With the KarmaConfigPath you should choose the appropriate karma config file loc
 
 With KarmaStartupScripts you can also point to a script/batch file which setup the path to find karma etc. Have a look at the junit-karma-testrunner documentation...
 
-Use the @BeforeClass and @AfterClass annotated methods to setup/cleanup your test scenario which is only useful for e2e tests.
+Use the `@BeforeClass` and `@AfterClass` annotated methods to setup/cleanup your test scenario which is only useful for e2e tests.
 If you need different test scenarios feel free to make another test class with it's own karma conf.
 
 Mostly all of the KarmaTestSuiteRunner annotations can be overwritten by system properties to run in CI-Server environments (see junit-karma-testrunner docu).
 
-The plugin provides a new test type "javascript" which can be executed in the unit or functional test phase:
-* to run all javascript unit test you can execute "test-app unit:javascript"
-* to run all javascript e2e test you can execute "test-app functional:javascript"
-* to run all unit tests inclusive javascript tests you can execute "test-app unit:"  as already known (same thing for all functional tests or all test with "test-app")
+The plugin provides a new test type `javascript` which can be executed in the unit or functional test phase:
+* to run all javascript unit test you can execute `test-app unit:javascript`
+* to run all javascript e2e test you can execute `test-app functional:javascript`
+* to run all unit tests inclusive javascript tests you can execute `test-app unit:`  as already known (same thing for all functional tests or all test with `test-app`)
 
 
-A complete grails application which uses this plugin as a reference can be found [here|https://github.com/FlorianGrundig/grails-angular-phonecat].
+A complete grails application which uses this plugin as a reference can be found [here](https://github.com/FlorianGrundig/grails-angular-phonecat).
 
 ####  Additional Setup for Windows and Mac environments
 
@@ -303,7 +302,7 @@ A script allows you to set the path environment variable for the karma executabl
 
 To use a script look at this test class  example for a windows batch file:
 
-```
+```java
 @RunWith(KarmaTestSuiteRunner.class)
 @KarmaTestSuiteRunner.KarmaConfigPath("./src/test/resources/config/karma-e2e.conf.js")
 @KarmaTestSuiteRunner.KarmaRemoteServerPort(9999)                        // set your port the default might not work
@@ -314,7 +313,7 @@ public class JavaScriptE2eTestKarmaSuite {
 ```
 
 In the script file you can modify the path for the karma executeable etc:
-```
+```bat
 set PATH=%PATH%;"C:\Users\foo\appdata\npm"    # depends on your environment - search for the karma executable
 
 set CHROME_BIN="path\to\your\chrome.exe"
@@ -326,7 +325,7 @@ karma start "%BASE_DIR%\..\test\javascript\config\karma.conf.js" %*        # pat
 ```
 
 In the karma config file set the port you configured in your test class:
-```
+```js
  remoteReporter: {
             host: 'localhost',
             port: '9999'
