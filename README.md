@@ -32,6 +32,9 @@ A complete grails application which uses this plugin as a reference can be found
 * The plugin currently fails when running on grails 2.3.x with forked test execution.
 
 ##History
+v0.2.1
+* uses junit-karma-testrunner v.1.3
+
 v0.2.0
 * uses junit-karma-testrunner v.1.1
 * more configuration options for running the tests in a developement and CI-Server environment
@@ -44,7 +47,6 @@ v0.2.0
 
 The plugin runs only on java 7 or higher versions.
 
-The plugin currently fails when running on grails 2.3.x with forked test execution.
 
 In order to make the plugin run your javascript tests it will start [karma] with your
 config provided by the test annotation `@KarmaTestSuiteRunner.KarmaConfigPath` (see above).
@@ -56,8 +58,6 @@ You have to install these frameworks by yourself.
 [nodejs]:http://nodejs.org/
 
 
-The karma-test-runner plugin currently supports only karma versions 0.10.x.
-
 
 ### Dependencies
 
@@ -66,7 +66,7 @@ Add the plugin as test dependency in your `BuildConfig.groovy`
 ```groovy
 plugins {
    ...
-   test ':karma-test-runner:0.2.0'
+   test ':karma-test-runner:0.2.1'
 }
 ```
 
@@ -97,11 +97,11 @@ If you want to do it not the fast way then read further otherwise you can skip t
 The nodejs application karma in version 0.10.x needs to be installed.
 A global installation is recommended when using the plugin in CI environments (e.g. the grails app will be tested by a jenkins-agent):
 ```sh
-npm install -g karma@0.10
+npm install -g karma
 ```
 For testing the plugin a local installation is good enough:
 ```sh
-npm install karma@0.10 --save-dev
+npm install karma
 ```
 
 ##### karma-remote-reporter

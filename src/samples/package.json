@@ -10,7 +10,7 @@
     "email": "florian.grundig@gmx.de"
   },
   "dependencies": {
-    "karma": "0.10.x",
+    "karma": ">=0.12.1",
     "karma-ng-scenario": ">=0.1",
     "karma-remote-reporter": ">=0.1.3"
   },
