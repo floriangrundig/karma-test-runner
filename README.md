@@ -28,7 +28,7 @@ Note: When this plugin is published to grailsCentral the documentation will be t
 A complete grails application which uses this plugin as a reference can be found at [Grails Angular Phonecat project](https://github.com/FlorianGrundig/grails-angular-phonecat)
 
 ##IMPORTANT
-* please reinstall karma-remote-reporter to a version >= v0.1.3 which fixes critical errors when reporting the test results
+* please reinstall karma-remote-reporter to a version >= v0.1.3 which fixes critical errors when reporting the test results and is compatible with karma 0.12.x
 * The plugin currently fails when running on grails 2.3.x with forked test execution.
 
 ##History
