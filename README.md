@@ -33,6 +33,9 @@ A complete grails application which uses this plugin as a reference can be found
 
 ##History
 v0.2.1
+* uses junit-karma-testrunner v.1.4 which supports Java 1.6 instead of only Java 1.7 and higher 
+
+v0.2.1
 * uses junit-karma-testrunner v.1.3
 
 v0.2.0
@@ -45,7 +48,7 @@ v0.2.0
 
 ##Prerequisites
 
-The plugin runs only on java 7 or higher versions.
+The plugin runs only on java 6 or higher versions.
 
 
 In order to make the plugin run your javascript tests it will start [karma] with your
