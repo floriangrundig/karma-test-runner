@@ -1,5 +1,5 @@
 class KarmaTestRunnerGrailsPlugin {
-    def version = "0.2.2-SNAPSHOT"
+    def version = "0.2.2"
     def grailsVersion = "2.0 > *"
     def pluginExcludes = [
         "src/docs/**/*",
