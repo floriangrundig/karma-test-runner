@@ -10,10 +10,9 @@ class KarmaTestRunnerGrailsPlugin {
     def author = "Florian Grundig"
     def authorEmail = "florian.grundig@gmx.de"
     def description = 'Runs javascript unit or e2e tests with karma. Provides a test type \"javascript\" which can be run in any test phase.'
-    def documentation = "https://github.com/ImmobilienScout24/karma-test-runner"
+    def documentation = "https://github.com/FlorianGrundig/karma-test-runner"
 
     def license = "APACHE"
-    def organization = [ name: "ImmobilienScout24", url: "http://www.immobilienscout24.de" ]
-    def issueManagement = [ system: "Github", url: "https://github.com/ImmobilienScout24/karma-test-runner/issues" ]
-    def scm = [ url: "https://github.com/ImmobilienScout24/karma-test-runner" ]
+    def issueManagement = [ system: "Github", url: "https://github.com/FlorianGrundig/karma-test-runner/issues" ]
+    def scm = [ url: "https://github.com/FlorianGrundig/karma-test-runner" ]
 }
