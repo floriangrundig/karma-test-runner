@@ -28,10 +28,12 @@ Note: When this plugin is published to grailsCentral the documentation will be t
 A complete grails application which uses this plugin as a reference can be found at [Grails Angular Phonecat project](https://github.com/FlorianGrundig/grails-angular-phonecat)
 
 ##IMPORTANT
-* please reinstall karma-remote-reporter to a version >= v0.1.3 which fixes critical errors when reporting the test results and is compatible with karma 0.12.x
-* The plugin currently fails when running on grails 2.3.x with forked test execution.
+* make sure that you have installed a karma-remote-reporter version v0.2.x
 
 ##History
+v0.2.3
+* uses junit-karma-testrunner v.1.6 which communicates with karma-remote-reporter via raw tcp sockets instead of using jetty + websockets
+
 v0.2.1
 * uses junit-karma-testrunner v.1.4 which supports Java 1.6 instead of only Java 1.7 and higher 
 
@@ -102,7 +104,7 @@ A global installation is recommended when using the plugin in CI environments (e
 ```sh
 npm install -g karma
 ```
-For testing the plugin a local installation is good enough:
+For testing the plugin a local installation is good enough (annotate your test class with something like @KarmaTestSuiteRunner.KarmaProcessName("./karma_test_project/node_modules/karma/bin/karma") )
 ```sh
 npm install karma
 ```
@@ -137,7 +139,13 @@ So there two ways you have to setup your application to execute javascript tests
 To setup a karma config means to create a config file which karma uses when executing the tests.
 Look at karma (http://karma-runner.github.io) configuration homepage for the format of a configuration file.
 
-A complete grails application which uses this plugin as a reference can be found here: (https://github.com/FlorianGrundig/grails-angular-phonecat).
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!  A complete grails application which uses this plugin as a reference can be found here: (https://github.com/FlorianGrundig/grails-angular-phonecat).
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
 In this reference app you'll find two karma config files
 * one for executing the unit tests
 ** @grails-angular-phonecat/test/javascript/config/karma.conf.js@
