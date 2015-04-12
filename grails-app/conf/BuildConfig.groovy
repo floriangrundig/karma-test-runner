@@ -13,7 +13,7 @@ grails.project.dependency.resolution = {
 	}
 
 	dependencies {
-		compile 'de.is24.util:junit-karma-testrunner:1.7-SNAPSHOT'
+		compile 'de.is24.util:junit-karma-testrunner:1.7'
 	}
 
 	plugins {

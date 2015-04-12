@@ -31,6 +31,10 @@ A complete grails application which uses this plugin as a reference can be found
 * make sure that you have installed a karma-remote-reporter version v0.2.x
 
 ##History
+
+v0.2.4
+* uses junit-karma-testrunner v.1.6 which doesn't include JUnit in the shaded jar anymore
+
 v0.2.3
 * uses junit-karma-testrunner v.1.6 which communicates with karma-remote-reporter via raw tcp sockets instead of using jetty + websockets
 
