@@ -33,7 +33,7 @@ A complete grails application which uses this plugin as a reference can be found
 ##History
 
 v0.2.4
-* uses junit-karma-testrunner v.1.6 which doesn't include JUnit in the shaded jar anymore
+* uses junit-karma-testrunner v.1.7 which doesn't include JUnit in the shaded jar anymore
 
 v0.2.3
 * uses junit-karma-testrunner v.1.6 which communicates with karma-remote-reporter via raw tcp sockets instead of using jetty + websockets
@@ -248,7 +248,7 @@ If you want to use karma for instant feedback (autoWatch: true, singleRun: false
 In a CI environment you should use only browsers supported by your CI-Server. There're ways to copy a build-agent specific karma.conf when running the build...
 
 Look at the [karma homepage](http://karma-runner.github.io/) - there're several more configuration options which might be interesting.
-One more: if you have two config files one for developement and one for the CI-Server -> extract the "files" and "exclude" section into a separate js-file to avoid duplicates...
+One more: if you have two config files one for development and one for the CI-Server -> extract the "files" and "exclude" section into a separate js-file to avoid duplicates...
 
 ### Setup karma test runner
 
